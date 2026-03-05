@@ -21,16 +21,26 @@
   "overrides": [
     {
       "includes": [
-        "src/**/__tests__/**",
-        "src/**/*.test.ts",
-        "src/**/*.spec.ts",
-        "src/**/*.test.tsx",
-        "src/**/*.spec.tsx"
+        "**/src/**/__tests__/**",
+        "**/src/**/*.test.ts",
+        "**/src/**/*.spec.ts",
+        "**/src/**/*.test.tsx",
+        "**/src/**/*.spec.tsx"
       ],
       "linter": {
         "rules": {
           "suspicious": {
             "noExplicitAny": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/opengraph-image.tsx"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noImgElement": "off"
           }
         }
       }
