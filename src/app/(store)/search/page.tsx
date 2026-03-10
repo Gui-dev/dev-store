@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import { z } from 'zod'
 import { searchProductsByQuery } from '@/http/search-products-by-query'
 
 interface ISearchProps {
@@ -9,8 +8,7 @@ interface ISearchProps {
 }
 
 const Search = async ({ searchParams }: ISearchProps) => {
-  const { q } = await searchParams
-  const query = z.string().parse(q)
+  const { q: query } = await searchParams
 
   if (!query) {
     redirect('/')
