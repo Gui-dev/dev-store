@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import data from '@/app/api/products/data.json'
 import { AddToCartButton } from '@/components/add-to-cart-button'
 import { getProduct } from '@/http/get-product'
 import type { Product as ProductType } from '@/types/product'
-import { api } from '@/utils/api'
 
 interface ProductProps {
   params: Promise<{ slug: string }>
@@ -22,10 +22,7 @@ export const generateMetadata = async ({
 }
 
 export const generateStaticParams = async () => {
-  const response = await api('/products/featured')
-  const { products } = await response.json()
-
-  return products.map((product: ProductType) => ({
+  return data.products.map((product: ProductType) => ({
     slug: product.slug,
   }))
 }
