@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { CartWidget } from './cart-widget'
 import { SearchForm } from './search-form'
 
@@ -10,7 +11,13 @@ export const Header = () => {
         <Link href="/" title="Dev Store Home">
           <h1 className="font-extrabold text-2xl text-white">Dev Store</h1>
         </Link>
-        <SearchForm />
+        <Suspense
+          fallback={
+            <div className="h-10 w-80 animate-pulse rounded-full bg-zinc-900" />
+          }
+        >
+          <SearchForm />
+        </Suspense>
       </div>
       <div className="flex items-center gap-4">
         <CartWidget />
