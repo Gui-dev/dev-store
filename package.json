@@ -40,5 +40,12 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "cypress",
+      "esbuild",
+      "msw"
+    ]
   }
 }
