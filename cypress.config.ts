@@ -1,11 +1,12 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress'
 
 export default defineConfig({
   allowCypressEnv: false,
 
   e2e: {
-    setupNodeEvents(on, config) {
+    baseUrl: 'http://localhost:3000',
+    setupNodeEvents(_on, _config) {
       // implement node event listeners here
     },
   },
-});
+})

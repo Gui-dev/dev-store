@@ -1,6 +1,9 @@
 describe('Add product to cart', () => {
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
   it('should add product to cart', () => {
-    cy.visit('http://localhost:3000')
     cy.get('a[href^="/product"]').first().click()
 
     cy.location('pathname').should('include', '/product')
@@ -11,7 +14,6 @@ describe('Add product to cart', () => {
   })
 
   it('should not add duplicate product to cart', () => {
-    cy.visit('http://localhost:3000')
     cy.get('a[href^="/product"]').first().click()
 
     cy.location('pathname').should('include', '/product')
@@ -23,8 +25,6 @@ describe('Add product to cart', () => {
   })
 
   it('should be able to search for a product and add to cart', () => {
-    cy.visit('http://localhost:3000')
-
     cy.get('input[name="query"]').type('moletom').parent('form').submit()
 
     cy.get('a[href^="/product"]').first().click()
@@ -34,4 +34,3 @@ describe('Add product to cart', () => {
     cy.contains('Carrinho (1)').should('exist')
   })
 })
-
