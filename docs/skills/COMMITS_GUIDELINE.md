@@ -40,7 +40,17 @@ For more complex changes, you can add a body and footer:
 
 ### Footer
 - **Breaking changes**: `BREAKING CHANGE: description`
-- **References**: `Closes #123`, `Refs #456`
+- **Issue references**: `Closes #123`, `Fixes #456`, `Refs #789`
+
+### Issue References
+When your commit addresses an issue or PR, reference it in the footer:
+
+| Keyword | When to use |
+|---------|-------------|
+| `Closes #123` | Commit resolves the issue completely |
+| `Fixes #123` | Commit fixes a bug in the issue |
+| `Refs #123` | Commit references the issue but doesn't close it |
+| `Related to #123` | Commit is related to the issue |
 
 ### Example with breaking change
 ```
