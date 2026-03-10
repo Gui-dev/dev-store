@@ -9,6 +9,7 @@ declare global {
 }
 
 Cypress.Commands.add('searchByQuery', (query: string) => {
+  cy.visit('/')
   cy.get('input[name="query"]').type(query).parent('form').submit()
 })
 
